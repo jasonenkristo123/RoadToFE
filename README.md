@@ -7,3 +7,6 @@ Master HTML5, CSS3, and basic JavaScript
 Build small web-based projects to practice skills
 Understand responsive design & modern frontend workflow
 Keep track of learning progress to compare over time
+
+
+KEEP UP THE GRIND!
