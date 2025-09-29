@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1 id="title">Jason Survey Form</h1>
+      <p id="description">Thank you for taking the time</p>
+    <form id="survey-form">
+      <label for="name" id="name-label">Name <input type="text" id="name" placeholder="Asep"required></label>
+      <label for="email" id="email-label">Email <input type="email" id="email" placeholder="asepmambu@gmail.com" required></label>
+      <label for="number" id="number-label">Number <input type="number" id="number" min="8" max="20" placeholder="17" required></label>
+    <fieldset>
+      <label for="dropdown">What is your current role?
+      <select id="dropdown" name="dropdown">
+        <option value="0">Select your role</option>
+        <option value="1">Study</option>
+        <option value="2">Work</option>
+        <option value="3">Unemployed</option>
+        <option value="4">Retired</option>
+        </select>
+        </label>
+      </fieldset>
+    <fieldset>
+      <legend>Which option best describes your web development skill?</legend>
+      <label for="beginner"><input type="radio" value="beginner" name="skill">Beginner</label>
+      <label for="intermediate"><input type="radio" value="intermeiate" name="skill">Intermediate</label>
+      <label for="insane"><input type="radio" value="insane" name="skill">Insane</label>
+      </fieldset>
+      <fieldset>
+        <legend>What programming language can you do?</legend>
+        <label for="python"><input type="checkbox" value="python">Python</label>
+        <label for="python"><input type="checkbox" value="java">Java</label>
+        <label for="python"><input type="checkbox" value="javascript">JavaScript</label>
+        <label for="python"><input type="checkbox" value="php">PHP</label>
+        <label for="python"><input type="checkbox" value="golang">Golang</label>
+        <label for="python"><input type="checkbox" value="rust">Rust</label>
+      </fieldset>
+      <fieldset>
+      <label for="experience">Could you share your experiences about your struggle with web dev<textarea id="experience" placeholder="your experience"></textarea></label>
+      </fieldset>
+      <label for="submit"><input type="submit" id="submit">
+      </form>
+    </body>
+</html>
+
