@@ -1,0 +1,74 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ddd;
+    line-height: 1.65;
+    padding-bottom: 1000px;
+}
+
+.container-satu {
+    width: 800px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    
+}
+
+.kolom-utama {
+    flex: 3;
+    order: 2;
+}
+
+.sidebar-satu {
+    flex: 1;
+    order: 1;
+}
+
+.sidebar-dua {
+    flex: 1;
+    order: 3;
+}
+
+.container-dua {
+    max-width: 800px;
+    margin: 50px auto;
+    
+}
+
+.layanan {
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    margin: 0 20px 5px 5px;
+}
+.layanan.satu {
+    background-color: rgb(16, 139, 210);
+}
+
+.layanan.dua {
+    background-color: rgb(36, 219, 42);
+}
+
+.layanan.tiga {
+    background-color: rgb(163, 205, 13);
+}
+
+/* responsive */
+
+@media (min-width: 600px) {
+    .container-dua {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .layanan {
+    width: 30%;
+    
+    }
+}
