@@ -1,0 +1,23 @@
+{
+  "name": "fe-learning",
+  "version": "1.0.0",
+  "description": "Frontend Learning Journey 🚀\r This repo contains my learning journey in mastering Frontend Development from the basics.\r All projects, exercises, and notes are stored here to serve as both documentation and a learning portfolio.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonenkristo123/RoadToFE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jasonenkristo123/RoadToFE/issues"
+  },
+  "homepage": "https://github.com/jasonenkristo123/RoadToFE#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.14",
+    "tailwindcss": "^4.1.14"
+  }
+}
