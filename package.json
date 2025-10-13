@@ -4,7 +4,7 @@
   "description": "Frontend Learning Journey 🚀\r This repo contains my learning journey in mastering Frontend Development from the basics.\r All projects, exercises, and notes are stored here to serve as both documentation and a learning portfolio.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
   },
   "repository": {
     "type": "git",
