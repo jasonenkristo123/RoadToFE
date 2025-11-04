@@ -13,4 +13,15 @@ for (let i = 0; i < 10; i++) {
 }
 
 const x = 5;
-(x % 2 == 0) ? console.log("x bilangan genap") : console.log("x bilangan ganjil") 
+(x % 2 == 0) ? console.log("x bilangan genap") : console.log("x bilangan ganjil");
+
+alert("Welcome Home");
+let lagi = true;
+
+while (lagi === true) {
+    let nama = prompt("Masukkan nama: ");
+    alert("Halo " + nama);
+
+    lagi = confirm("coba lagi?");
+}
+alert("Thank you..");
