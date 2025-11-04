@@ -17,11 +17,16 @@ const x = 5;
 
 alert("Welcome Home");
 let lagi = true;
-
-while (lagi === true) {
-    let nama = prompt("Masukkan nama: ");
-    alert("Halo " + nama);
-
-    lagi = confirm("coba lagi?");
+while (lagi) {
+    let angka = prompt("Masukkan angka: ");
+    if (angka % 2 == 0 ) {
+    alert("angka yang kamu masukkan adalah genap");
+    } else {
+    alert("angka yang kamu masukkan adalah ganjil");
+    }
+    
+    lagi = confirm("Mau masukkan angka lagi?");
+    
 }
-alert("Thank you..");
+alert("Makasih");
+
