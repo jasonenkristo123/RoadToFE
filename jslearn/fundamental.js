@@ -15,18 +15,12 @@ for (let i = 0; i < 10; i++) {
 const x = 5;
 (x % 2 == 0) ? console.log("x bilangan genap") : console.log("x bilangan ganjil");
 
-alert("Welcome Home");
-let lagi = true;
-while (lagi) {
-    let angka = prompt("Masukkan angka: ");
-    if (angka % 2 == 0 ) {
-    alert("angka yang kamu masukkan adalah genap");
+
+for (let i = 0; i < 10; i++) {
+    if (i % 2 == 0) {
+        console.log("i adalah angka genap");
     } else {
-    alert("angka yang kamu masukkan adalah ganjil");
+        console.log("i adalah angka ganjil")
     }
-    
-    lagi = confirm("Mau masukkan angka lagi?");
-    
 }
-alert("Makasih");
 
