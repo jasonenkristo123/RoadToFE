@@ -4,11 +4,11 @@ function luasLingkaran(jari) {
 }
 
 function faktorial(n) {
-    if (n <= 0) {
+    if (n <= 0 ) {
         return 1;
     } else {
         return n * faktorial(n - 1);
     }
 }
 console.log(luasLingkaran(10));
-console.log(faktorial(10));
+console.log(faktorial(5));
