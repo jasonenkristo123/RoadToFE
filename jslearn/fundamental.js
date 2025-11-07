@@ -4,5 +4,13 @@ function luasLingkaran(jari, pi) {
 
 console.log(luasLingkaran(10, 3.14));
 
-let arr = ["Jason", "Nael", "Jasik", 10, 20];
-console.log(arr); 
+const arr = ["Jason", "Nael", "Jasik"];
+console.log(arr.join());
+arr.push("Makasi");
+console.log(arr.join());
+arr.pop();
+console.log(arr.join());
+arr.unshift("Doddy");
+console.log(arr.join());
+arr.shift();
+console.log(arr.join());
