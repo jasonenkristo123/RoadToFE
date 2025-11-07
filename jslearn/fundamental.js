@@ -6,11 +6,17 @@ console.log(luasLingkaran(10, 3.14));
 
 const arr = ["Jason", "Nael", "Jasik"];
 console.log(arr.join());
-arr.push("Makasi");
+arr.push("Makasi"); // nambah array paling belakang
 console.log(arr.join());
-arr.pop();
+arr.pop(); // hapus array paling belakang
 console.log(arr.join());
-arr.unshift("Doddy");
+arr.unshift("Doddy"); // nambah array paling depan
 console.log(arr.join());
-arr.shift();
+arr.shift(); // hapus array paling depan
 console.log(arr.join());
+
+arr.splice(1, 0, "Asem"); // menambah array (index ke berapa, hapus index berapa, isi)
+console.log(arr.join());
+
+const arr2 = arr.slice(1, 4);
+console.log(arr2.join());
