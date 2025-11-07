@@ -1,14 +1,5 @@
-function luasLingkaran(jari) {
-    let luas = 3.14 * jari * jari;
-    return luas;
+function luasLingkaran(jari, pi) {
+    return jari * jari * pi;
 }
 
-function faktorial(n) {
-    if (n <= 0 ) {
-        return 1;
-    } else {
-        return n * faktorial(n - 1);
-    }
-}
-console.log(luasLingkaran(10));
-console.log(faktorial(5));
+console.log(luasLingkaran(10, 3.14));
