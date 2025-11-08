@@ -21,13 +21,30 @@
 // console.log(arr2.join());
 // const arr2 = arr.slice(1, 4); // membuat array baru dari array 1
 
-const angka = [1, 2, 3, 4, 5, 6, 7];
-// menggunakan forEach agar lebih simpel saat looping
-angka.forEach(function(x) {
-    console.log(x);
-})
+// const angka = [1, 2, 3, 4, 5, 6, 7];
+// // menggunakan forEach agar lebih simpel saat looping
+// angka.forEach(function(x) {
+//     console.log(x);
+// })
+// 
+// const nama = ["Jason", "Brian", "Arfa"];
+// nama.forEach(function(e, i) {
+//     console.log("Nama ke-" + (i + 1) + " adalah: " + e);
+// })
 
-const nama = ["Jason", "Brian", "Arfa"];
-nama.forEach(function(e, i) {
-    console.log("Nama ke-" + (i + 1) + " adalah: " + e);
-})
+// hati hati karena forEach tidak mengembalikan nilai array -> lebih baik pakai map
+
+// const angka = [1, 2, 3, 4, 5];
+// const angka2 = angka.map(function(e) {
+//     return e * 2;
+// });
+// 
+// console.log(angka2.join(" - ")); // map bisa mengembalikan nilai array
+
+// sorting array
+
+const array = [1, 5, 8, 3, 2, 9, 10, 21];
+array.sort(function(a, b) {
+    return a - b;
+});
+console.log(array.join());
