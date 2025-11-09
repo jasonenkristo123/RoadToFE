@@ -43,8 +43,22 @@
 
 // sorting array
 
-const array = [1, 5, 8, 3, 2, 9, 10, 21];
-array.sort(function(a, b) {
-    return a - b;
+// const array = [1, 5, 8, 3, 2, 9, 10, 21];
+// array.sort(function(a, b) {
+//     return a - b; // ini fungsinya untuk sort angka dari terkecil sampai terbesar
+// });
+// console.log(array.join());
+
+//filter
+// const angka = [1, 2, 4, 8, 20];
+// const angka2 = angka.filter(function(e) {
+//     return e > 2;
+// });
+// console.log(angka2.join(" - ")); // akan keluar array yang mengurutkan angka > 2
+
+//find
+const angka = [1, 2, 4, 8, 20];
+const angka2 = angka.find(function(e) {
+    return e > 2;
 });
-console.log(array.join());
+console.log(angka2); // tidak bisa di join karena find hanya mencari 1 angka dan tidak bisa mengembalikan array
