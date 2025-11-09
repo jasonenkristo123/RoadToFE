@@ -63,18 +63,51 @@
 // });
 // console.log(angka2); // tidak bisa di join karena find hanya mencari 1 angka dan tidak bisa mengembalikan array
 
-//object di javascript
-const mahasiswa = {
-    nama : "Jason",
-    umur : 18,
-    ipk : [3.50, 4.00, 3.75, 3.80, 3.90, 3.95, 4.00],
-    ipKumulatif : function() {
-        let total = 0;
-        let ips = this.ipk;
-        for (let i = 0; i < ips.length; i++) {
-            total += ips[i];
-        }
-        return total / ips.length;
-    }
+//object di javascript -> hashmap di java
+// const mahasiswa = {
+//     nama : "Jason",
+//     umur : 18,
+//     ipk : [3.50, 4.00, 3.75, 3.80, 3.90, 3.95, 4.00],
+//     ipKumulatif : function() {
+//         let total = 0;
+//         let ips = this.ipk;
+//         for (let i = 0; i < ips.length; i++) {
+//             total += ips[i];
+//         }
+//         return total / ips.length;
+//     }
+// }
+// console.log(mahasiswa.ipKumulatif());
+
+// beberapa cara membuat object
+// 1. object literal
+const mhs = {
+    nama: "Jason",
+    umur: 19,
+    nim: 255190239102
 }
-console.log(mahasiswa.ipKumulatif());
+
+// 2. function declaraction
+function mahasiswa(nama, umur, nim) {
+    let mhs = {};
+    mhs.nama = nama;
+    mhs.umur = umur;
+    mhs.nim = nim;
+    return mhs;
+}
+const student1 = mahasiswa("Jason", 20, 12938123213);
+
+// 3. constructor
+function mahasiswi(nama, umur, nim) {
+    this.nama = nama;
+    this.umur = umur;
+    this.nim = nim;
+}
+const student = new mahasiswi("Jason", 17, 1283123031);
+
+function guru(nama, subject, umur) {
+    this.nama = nama;
+    this.subject = subject;
+    this.umur = umur;
+}
+const guru = new guru("Marji", "Math", 48);
