@@ -57,8 +57,24 @@
 // console.log(angka2.join(" - ")); // akan keluar array yang mengurutkan angka > 2
 
 //find
-const angka = [1, 2, 4, 8, 20];
-const angka2 = angka.find(function(e) {
-    return e > 2;
-});
-console.log(angka2); // tidak bisa di join karena find hanya mencari 1 angka dan tidak bisa mengembalikan array
+// const angka = [1, 2, 4, 8, 20];
+// const angka2 = angka.find(function(e) {
+//     return e > 2;
+// });
+// console.log(angka2); // tidak bisa di join karena find hanya mencari 1 angka dan tidak bisa mengembalikan array
+
+//object di javascript
+const mahasiswa = {
+    nama : "Jason",
+    umur : 18,
+    ipk : [3.50, 4.00, 3.75, 3.80, 3.90, 3.95, 4.00],
+    ipKumulatif : function() {
+        let total = 0;
+        let ips = this.ipk;
+        for (let i = 0; i < ips.length; i++) {
+            total += ips[i];
+        }
+        return total / ips.length;
+    }
+}
+console.log(mahasiswa.ipKumulatif());
