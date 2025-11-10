@@ -1,12 +1,33 @@
-let name = "Jason";
-console.log(`${name}`);
+// let name = "Jason";
+// console.log(`${name}`);
+// 
+// let text = "apasih malasnya \uD800";
+// let result = text.toWellFormed();
+// console.log(result);
+// 
+// let text1 = "Malas banget gw asli";
+// console.log(text1.match("sli"));
+// 
+// let number = BigInt(999999999999999);
+// console.log(number)
 
-let text = "apasih malasnya \uD800";
-let result = text.toWellFormed();
-console.log(result);
+// rest parameter
+function sum(...args) {
+    let sum = 0;
+    for (let arg of args) {
+        sum += arg;
+    }
+    return sum;
+}
+console.log(sum(10, 20, 30, 40, 50, 60, 87, 100, 202, 121));
 
-let text1 = "Malas banget gw asli";
-console.log(text1.match("sli"));
+// arguments parameter
+function sumAll () {
+    let sum = 0;
+    for (let i = 0; i < arguments.length; i++) {
+        sum += arguments[i];
+    }
+    return sum;
+}
 
-let number = BigInt(999999999999999);
-console.log(number);
+console.log(sumAll(10, 20, 30, 40, 50));
