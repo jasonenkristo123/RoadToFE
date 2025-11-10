@@ -115,6 +115,10 @@ const guru1 = new guru("Marji", "Math", 48);
 // function sapaNama(nama) {
 //     console.log('halo', nama);
 // }
+
 // arrow function di modern js
-const perkalian = (a, b) => a * b;
-console.log(perkalian(10, 2));
+
+// const perkalian = (a, b) => a * b;
+// console.log(perkalian(10, 2));
+
+ 
