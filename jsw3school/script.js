@@ -44,3 +44,19 @@ let pembagian = (a, b) => {
     return a / b;
 }
 console.log(pembagian(10, 2));
+
+// kalau mau memakai return, harus ada curly brackets {}
+// kalau tidak mau pakai return tidak usah ada curly brackets
+
+// callback function
+let hitung = (a, b, operasi) => {
+    return operasi(a, b);
+}
+
+let tambah = (a, b) => {
+    return a + b;
+}
+
+let kali = (a, b) => a * b;
+console.log(hitung(10, 5, tambah));
+console.log(hitung(10, 20, kali));
