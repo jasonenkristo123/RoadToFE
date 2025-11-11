@@ -29,5 +29,18 @@ function sumAll () {
     }
     return sum;
 }
-
 console.log(sumAll(10, 20, 30, 40, 50));
+
+// arrow function
+let perkalian = (a, b) => a * b;
+console.log(perkalian(10, 20));
+
+let nama = () => {
+    return "Hello World";
+}
+console.log(nama());
+
+let pembagian = (a, b) => {
+    return a / b;
+}
+console.log(pembagian(10, 2));
