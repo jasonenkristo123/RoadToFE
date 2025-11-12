@@ -94,4 +94,19 @@ const obyek = {
     }
 };
 console.log(obyek);
-console.log(obyek.obyek2)
+console.log(obyek.obyek2);
+
+const siswa = {
+    name: "diego",
+    kelas: "12",
+    nilai: [80, 100, 90, 95, 92, 93],
+    rata() {
+        let sum = 0;
+        for (let i = 0; i < this.nilai.length; i++) {
+            sum += this.nilai[i];
+        }
+        return sum / this.nilai.length;
+    }
+}
+
+console.log(siswa.rata());
