@@ -122,3 +122,25 @@ for (let x in person1) {
     text1 += person1[x] + " ";
 }
 console.log(text1);
+
+// menggunakan object value untuk membuat arrray
+const myArray = Object.values(person1);
+let text2 = myArray.toString();
+console.log(text2);
+
+// menggunakan object entries untuk membuat simpel object saat di looping
+const fruits = {
+    apple: 200,
+    banana: 400, 
+    orange: 500
+};
+
+let text3 = "";
+for (let [fruit, value] of Object.entries(fruits)) {
+    text += fruit + ": " + value;
+}
+console.log(text3);
+
+// using json stringify
+let text4 = JSON.stringify(fruits);
+console.log(text4);
