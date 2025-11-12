@@ -70,7 +70,8 @@ const objek = {
 
 let text = objek;
 console.log(text);
-
+delete objek.nama;
+console.log(text);
 
 function person(first, last, age, eyecolor) {
     this.firstName = first;
@@ -80,3 +81,17 @@ function person(first, last, age, eyecolor) {
 };
 const personAPP = new person("Jason", "Enkristo", 18, "red");
 console.log(personAPP);
+
+// nested object
+const obyek = {
+    name: "obed",
+    age: 18,
+    height: 180,
+    obyek2: {
+        car: "bmw",
+        color: "blue",
+        speed: 105
+    }
+};
+console.log(obyek);
+console.log(obyek.obyek2)
