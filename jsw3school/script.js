@@ -110,3 +110,15 @@ const siswa = {
 }
 
 console.log(siswa.rata());
+
+const person1 = {
+    name: "malas",
+    umur: 20,
+    city: "Indonesia"
+};
+
+let text1 = "";
+for (let x in person1) {
+    text1 += person1[x] + " ";
+}
+console.log(text1);
