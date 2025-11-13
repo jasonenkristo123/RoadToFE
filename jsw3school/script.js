@@ -144,3 +144,9 @@ console.log(text3);
 // using json stringify
 let text4 = JSON.stringify(fruits);
 console.log(text4);
+
+// reduce 
+// untuk menggabungkan seluruh array menjadi satu 
+const angka3 = [1, 10, 2, 3];
+const total = angka3.reduce((acc, curr) => acc + curr, 0);
+console.log(total);
