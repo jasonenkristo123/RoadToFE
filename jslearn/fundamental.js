@@ -34,6 +34,7 @@
 
 // hati hati karena forEach tidak mengembalikan nilai array -> lebih baik pakai map
 
+//map -> biasanya digunakan untuk elemen list di react
 // const angka = [1, 2, 3, 4, 5];
 // const angka2 = angka.map(function(e) {
 //     return e * 2;
@@ -49,7 +50,7 @@
 // });
 // console.log(array.join());
 
-//filter
+//filter -> di react di gunakan untuk memfilter item yang terkena diskon
 // const angka = [1, 2, 4, 8, 20];
 // const angka2 = angka.filter(function(e) {
 //     return e > 2;

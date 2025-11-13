@@ -147,6 +147,11 @@ console.log(text4);
 
 // reduce 
 // untuk menggabungkan seluruh array menjadi satu 
-const angka3 = [1, 10, 2, 3];
-const total = angka3.reduce((acc, curr) => acc + curr, 0);
+const angka3 = [1, 10, 2, 3, 20, 43, 84];
+const total = angka3.reduce((a, b) => a + b);
 console.log(total);
+console.log(Math.min.apply(0, angka3));
+const loop = angka3.flatMap(function (nums) {
+    return nums *= 2;
+});
+console.log(loop);
