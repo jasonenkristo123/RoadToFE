@@ -180,3 +180,8 @@ const data1 = [10, 20, 30];
 const data2 = [2, 4, 6, 8];
 const gabung = [...data1, ...data2];
 console.log(gabung);
+
+const data3 = [10, 20, 30, 50, 70, 10, 20, 20, 40];
+for (let x in data3) {
+    console.log(data3[x]);
+}
