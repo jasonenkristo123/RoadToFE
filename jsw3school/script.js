@@ -174,3 +174,9 @@ const sport = {
 
 const {sport1, sport2, sport3} = sport;
 console.log(sport1);
+
+// spread operator -> untuk menggabungkan
+const data1 = [10, 20, 30];
+const data2 = [2, 4, 6, 8];
+const gabung = [...data1, ...data2];
+console.log(gabung);
