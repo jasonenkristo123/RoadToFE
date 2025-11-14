@@ -150,8 +150,27 @@ console.log(text4);
 const angka3 = [1, 10, 2, 3, 20, 43, 84];
 const total = angka3.reduce((a, b) => a + b);
 console.log(total);
-console.log(Math.min.apply(0, angka3));
+console.log("Min: " + Math.min(...angka3));
+console.log("Max: " + Math.max(...angka3));
 const loop = angka3.flatMap(function (nums) {
     return nums *= 2;
 });
 console.log(loop);
+
+let a, rest;
+[a, ...rest] = angka3;
+console.log(rest);
+
+// destructuring -> mengakses array dan objek dengan cepat
+const angka = ["kuning", "hijau", "oranye"];
+const [x, y, z] = angka;
+console.log(y);
+
+const sport = {
+    sport1: "Basket",
+    sport2: "Futsal",
+    sport3: "Badminton"
+};
+
+const {sport1, sport2, sport3} = sport;
+console.log(sport1);
