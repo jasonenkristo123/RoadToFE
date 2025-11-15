@@ -181,7 +181,10 @@ const data2 = [2, 4, 6, 8];
 const gabung = [...data1, ...data2];
 console.log(gabung);
 
-const data3 = [10, 20, 30, 50, 70, 10, 20, 20, 40];
-for (let x in data3) {
-    console.log(data3[x]);
-}
+// map object
+const fruit1 = new Map();
+fruit1.set("apples", 500);
+fruit1.set("orange", 200);
+
+console.log(fruit1.get("apples")); // return 500
+console.log(fruit1.size);
