@@ -187,4 +187,15 @@ fruit1.set("apples", 500);
 fruit1.set("orange", 200);
 
 console.log(fruit1.get("apples")); // return 500
-console.log(fruit1.size);
+console.log(fruit1.size); // retun array size
+
+// template string
+const texting = "Brian";
+console.log(`Halo ${texting}, Selamat Datang`);
+console.log(`10 x 2 = ${10 * 2}`);
+const bio = `
+    nama: Brian
+    umur: 40
+    tinggi: 170cm
+`;
+console.log(bio);
