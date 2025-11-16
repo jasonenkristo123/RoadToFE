@@ -200,5 +200,42 @@ tinggi: 170cm
 `;
 console.log(bio);
 
-export const tambahan = (a, b) => a + b;
-export const kalian = (a, b) => a * b;
+//module -> kalau export default, import nama bebas
+// export const tambahan = (a, b) => a + b;
+// export const kalian = (a, b) => a * b;
+
+// class and inherintance
+// class -> constructor versi modern
+// sebelumnya pakai function dan this keyword, tetapi sekarang berbeda
+
+class siswaUb {
+    constructor(nama, umur) {
+        this.nama = nama;
+        this.umur = umur;
+    }
+    sayHi() {
+        console.log(`Hai nama saya ${this.nama}, umur saya ${this.umur}`);
+    }
+}
+
+const panggil = new siswaUb("Qalbi", 19);
+panggil.sayHi();
+
+// inherintence
+class animal {
+    speak() {
+        console.log("Auuuuuu");
+    }
+}
+
+class dog extends animal {
+    speak() {
+        console.log("gukgukguk");
+    }
+}
+
+const obj = new dog();
+obj.speak(); // output gukguk
+
+const objnim = new animal();
+objnim.speak();
