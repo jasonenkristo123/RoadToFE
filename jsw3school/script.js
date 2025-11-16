@@ -243,4 +243,23 @@ objnim.speak();
 // optional chaining -> mengakses variabel yang tidak ada atau null tanpa error
 const user = {};
 // console.log(user.address.city); -> error
-console.log(user.address?.city);
+console.log(user.address?.city); // -> undefined
+
+
+// nullish coalescing -> 
+// digunakan ketika
+// Kamu mengambil data dari API
+// Property bisa saja null
+// Kamu ingin memberikan fallback value yang aman
+// Tidak ingin false seperti 0, "" dianggap sebagai default
+
+// || dianggap falsey, kalau ?? hanya null dan undefined saja yang dianggap kosong, menggap 0 nilai valid 
+const age = 0;
+console.log(age || 18); // hasilnya 18 dan salah
+console.log(age ?? 18); // hasilnya 0 -> benar
+
+const name = null;
+console.log(name ?? "Anonymous");
+
+const user1 = {};
+console.log(user1.info?.email ?? "No Email");
