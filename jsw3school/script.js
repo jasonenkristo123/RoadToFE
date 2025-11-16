@@ -194,8 +194,11 @@ const texting = "Brian";
 console.log(`Halo ${texting}, Selamat Datang`);
 console.log(`10 x 2 = ${10 * 2}`);
 const bio = `
-    nama: Brian
-    umur: 40
-    tinggi: 170cm
+nama: Brian
+umur: 40
+tinggi: 170cm
 `;
 console.log(bio);
+
+export const tambahan = (a, b) => a + b;
+export const kalian = (a, b) => a * b;
