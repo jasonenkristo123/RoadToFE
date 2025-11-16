@@ -239,3 +239,8 @@ obj.speak(); // output gukguk
 
 const objnim = new animal();
 objnim.speak();
+
+// optional chaining -> mengakses variabel yang tidak ada atau null tanpa error
+const user = {};
+// console.log(user.address.city); -> error
+console.log(user.address?.city);
