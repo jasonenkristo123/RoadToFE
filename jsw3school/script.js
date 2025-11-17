@@ -262,4 +262,23 @@ const name = null;
 console.log(name ?? "Anonymous");
 
 const user1 = {};
-console.log(user1.info?.email ?? "No Email");
+console.log(user1.info?.email ?? "No Email"); // menghasilkan no email
+
+// misal contoh ambil api dan mau menampilkan loading layar
+// const data = apiResponse.value ?? "Loading...";
+
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+class doggy extends Animal {
+    constructor(name, breed) {
+        super(name);
+        this.breed = breed;;
+    }
+}
+const obj2 = new Animal("Arfa");
+const obj3 = new doggy("female");
+console.log(obj3);
