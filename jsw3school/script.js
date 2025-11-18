@@ -282,3 +282,20 @@ class doggy extends Animal {
 const obj2 = new Animal("Arfa");
 const obj3 = new doggy("female");
 console.log(obj3);
+
+class lingkaran {
+    constructor(jari) {
+        this.jari = jari;
+    }
+
+    set luas(jari) {
+        return this.jari = jari;
+    }
+    
+    get luas() {
+        return this.jari * this.jari * 3.14;
+    }
+}
+
+const astaga = new lingkaran(10);
+console.log(astaga);
