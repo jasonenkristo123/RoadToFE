@@ -283,19 +283,38 @@ const obj2 = new Animal("Arfa");
 const obj3 = new doggy("female");
 console.log(obj3);
 
-class lingkaran {
-    constructor(jari) {
-        this.jari = jari;
-    }
+// class namalu {
+//     constructor(jari) {
+//         this.jari = jari;
+//     }
+//     get luas() {
+//         return jari * jari * 3.14;
+//     }
+//     set luas(jari) {
+//         this.jari = jari;
+//     }
+// }
 
-    set luas(jari) {
-        return this.jari = jari;
+class Mathutil {
+    static add (a, b) {
+        return a + b;
     }
-    
-    get luas() {
-        return this.jari * this.jari * 3.14;
+}
+console.log(Mathutil.add (10, 20));
+
+// private fields, hanya ada di javascript
+
+class Bank {
+    #balance = 100;
+
+    deposit(amount) {
+        this.#balance += amount;
+    }
+    getBalance() {
+        return this.#balance;
     }
 }
 
-const astaga = new lingkaran(10);
-console.log(astaga);
+const uang = new Bank();
+uang.deposit(100);
+console.log(uang.getBalance());
