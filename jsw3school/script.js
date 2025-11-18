@@ -305,7 +305,7 @@ console.log(Mathutil.add (10, 20));
 // private fields, hanya ada di javascript
 
 class Bank {
-    #balance = 100;
+    #balance = 100; // class private
 
     deposit(amount) {
         this.#balance += amount;
@@ -317,4 +317,33 @@ class Bank {
 
 const uang = new Bank();
 uang.deposit(100);
-console.log(uang.getBalance());
+console.log(uang.getBalance()); // -> hasilnya 200
+
+// javascript itu bukan class based tetapi prototype
+// class vs prototype
+// class A {}
+// function A() {}
+// ini sama saja hanya beda di print
+
+// inheritance flow -> mirip class hierarchy
+// extends membuat anak mewarisi prototype dari parent
+class B {}
+class C extends B {}
+console.log(C.prototype.__proto__=== B.prototype); // -> return true
+
+class X {
+    greet() {
+        return "Hello from class X";
+    }
+}
+
+class Z extends X {
+    greet() {
+        return super.greet() + " and Z";
+    }
+}
+
+const objik = new X();
+const objik1 = new Z();
+console.log(objik.greet());
+console.log(objik1.greet());
