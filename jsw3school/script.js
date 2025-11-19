@@ -347,3 +347,40 @@ const objik = new X();
 const objik1 = new Z();
 console.log(objik.greet());
 console.log(objik1.greet());
+
+// overriding method di js lebih flex, type dan parameter boleh beda
+
+class asem {
+    greet(name) {
+        return "Hello " + name;
+    }
+}
+
+class pait extends asem {
+    greet() {
+        return "Hi Bos";
+    }
+}
+
+// getter dan setter advance
+
+class UserName {
+    constructor(name) {
+        this.name = name;
+    }
+
+    get jeneng() {
+        return this.name.toUpperCase();
+    }
+
+    set jeneng(value) {
+        if (value.length < 3) {
+            console.log("name is too short");
+            return;
+        }
+        this.name = value;
+    }
+}
+
+const user3 = new UserName("Jason");
+console.log(user3.jeneng);
