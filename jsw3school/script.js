@@ -384,3 +384,34 @@ class UserName {
 
 const user3 = new UserName("Jason");
 console.log(user3.jeneng);
+
+
+// static vs instance = static tinggal panggil class.method kalau instance harus obj.method
+
+// promise
+// yaitu janji di javascript(Sering di pakai di api dsb),ada 3, fulfilled, rejected, pending
+const janji = new Promise((resolve, reject) => {
+    let sukses = true;
+
+    if (sukses) {
+        resolve("Berhasil!");
+    } else {
+        reject("Gagal!");
+    }
+});
+
+// kalau menggunakan .then dan catch
+janji
+    .then(result => console.log(result))
+    .catch(error => console.log(error));
+
+// contoh promise nyata misal di loading data
+function getData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Data berhasil di ambil setelah 2 detik");
+        }, 2000);
+    });
+}
+
+getData().then(console.log);
