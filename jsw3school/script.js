@@ -406,12 +406,60 @@ janji
     .catch(error => console.log(error));
 
 // contoh promise nyata misal di loading data
-function getData() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("Data berhasil di ambil setelah 2 detik");
-        }, 2000);
-    });
-}
+// function getData() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("Data berhasil di ambil setelah 2 detik");
+//         });
+//     });
+// }
 
-getData().then(console.log);
+// getData().then(console.log);
+
+const p = new Promise((resolve, reject) => {
+    resolve("Start");
+    resolve("Next");
+    reject("Error");
+});
+
+p.then(msg => console.log(msg))
+.catch(err => console.log(err));
+
+
+// new Promise((resolve, reject) => {
+//     reject("OOPS");
+// })
+// .then(() => {
+//     return "A";
+// })
+// .then(data => console.log(data))
+// .catch(err => console.log("Catch: " + err));
+// 
+// const test = new Promise((resolve, reject) => {
+//     setTimeout(() => resolve(5), 1000);
+// })
+// 
+// .then(val => {
+//     console.log(val)
+//     return val + 10;
+// })
+// 
+// .then(val => {
+//     console.log(val)
+//     return val * 2;
+// })
+// 
+// .then(val => console.log(val));
+
+Promise.resolve(10)
+.then(val => {
+    console.log(val);
+    return val * 2;
+})
+.then(val => { 
+    console.log(val);
+    throw ("Boom!");
+})
+
+.then(val => console.log("Last: " + val))
+.catch(err => console.log("Error: " + err));
