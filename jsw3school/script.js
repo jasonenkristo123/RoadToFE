@@ -451,15 +451,49 @@ p.then(msg => console.log(msg))
 // 
 // .then(val => console.log(val));
 
-Promise.resolve(10)
-.then(val => {
-    console.log(val);
-    return val * 2;
-})
-.then(val => { 
-    console.log(val);
-    throw ("Boom!");
-})
+// Promise.resolve(10)
+// .then(val => {
+//     console.log(val);
+//     return val * 2;
+// })
+// .then(val => { 
+//     console.log(val);
+//     throw ("Boom!");
+// })
+// 
+// .then(val => console.log("Last: " + val))
+// .catch(err => console.log("Error: " + err));
 
-.then(val => console.log("Last: " + val))
-.catch(err => console.log("Error: " + err));
+// new Promise((resolve) => {
+//     resolve("A");
+// })
+// .then(val => {
+//     console.log(val);
+//     return "B";
+// })
+// .then(val => {
+//     console.log(val);
+//     return Promise.resolve("C");
+// })
+// .then(val => console.log(val))
+// .catch(val => console.log(err));
+// 
+// new Promise((resolve, reject) => {
+//     reject("X");
+// })
+// 
+// .catch(err => {
+//     console.log("Handled: " + err);
+//     return "Resolved";
+// })
+// .then(val => {
+//     console.log(val);
+// });
+
+// promise all, menjalankan semua promise
+
+const p1 = Promise.resolve(10);
+const p2 = Promise.resolve(20);
+const p3 = Promise.resolve(30);
+
+Promise.all([p1, p2, p3]).then(all => console.log(all));
