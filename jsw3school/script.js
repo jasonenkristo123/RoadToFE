@@ -497,3 +497,9 @@ const p2 = Promise.resolve(20);
 const p3 = Promise.resolve(30);
 
 Promise.all([p1, p2, p3]).then(all => console.log(all));
+
+// contoh promise misal di delay
+const l1 = new Promise(resolve => setTimeout(() => resolve("A"), 1000));
+const l2 = new Promise(resolve => setTimeout(() => resolve("B"), 2000));
+const l3 = new Promise(resolve => setTimeout(() => resolve("C"), 500));
+Promise.all([l1, l2, l3]).then(all => console.log(all));
