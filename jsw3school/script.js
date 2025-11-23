@@ -531,9 +531,47 @@ const k1 = new Promise(resolve => setTimeout(() => resolve("A"), 1000)); // akan
 const k2 = new Promise(resolve => setTimeout(() => resolve("B"), 2000));
 Promise.race([k1, k2]).then(all => console.log(all)); // akan keluar hanya A karena A menang
 
-const o1 = new Promise((_, rej) => setTimeout(() => rej("Error"), 2000));
-const o2 = new Promise(resolve => setTimeout(() => resolve("Done"), 1000));
+const o1 = new Promise((_, rej) => setTimeout(() => rej("Error"), 1000));
+const o2 = new Promise(resolve => setTimeout(() => resolve("Done"), 2000));
 Promise.race([o1, o2])
     .then(console.log)
-    .catch(err => console.log("Error: " + err)); // akan keluar error
+    .catch(err => console.log("Error: " + err)); // akan keluar error karena error duluan yang menang
 
+// contoh misal memaksa api harus selesai dalam beberapa detik
+// const fetchdata = fetch("https://api.example.com/data");
+// const timeout = new Promise((_, reject) => setTimeout(() => reject("Timeout!"), 2000));
+// Promise.race([fetchdata, timeout])
+//     .then(res => console.log("Succes"))
+//     .catch(err => console.log("Failed: " + err));
+
+// promise chaining + error routing
+
+function slow() {
+    return new Promise(resolve => setTimeout(() => resolve("Slow"), 200));
+}
+
+function fast() {
+    return new Promise(resolve => {
+        setTimeout(() => resolve("Fast"), 50)
+    });
+}
+
+Promise.resolve("Start")
+    .then((msg) => {
+        console.log(msg);
+        return fast();
+    })
+    .then((msg) => {
+        console.log(msg);
+        throw "Crash";
+    })
+    .then(() => console.log("After Crash"))
+    .catch((err) => {
+        console.log("Err: " + err);
+        return slow();
+    })
+    .then((msg) => {
+        console.log("Recover: " + msg);
+        return "End";
+    })
+    .finally(() => console.log("Done"));
