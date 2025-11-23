@@ -503,3 +503,37 @@ const l1 = new Promise(resolve => setTimeout(() => resolve("A"), 1000));
 const l2 = new Promise(resolve => setTimeout(() => resolve("B"), 2000));
 const l3 = new Promise(resolve => setTimeout(() => resolve("C"), 500));
 Promise.all([l1, l2, l3]).then(all => console.log(all));
+
+// contoh kalau fetch api
+// Promise.all([
+//     fetch("https://api.example.com/user"),
+//     fetch("https://api.example.com/posts"),
+//     fetch("https://api.example.com/comments")
+// ])
+// .then(response => Promise.all(response.map(r => r.json())))
+// .then(data => {
+//     console.log("User: ", data[0]);
+//     console.log("Posts: ", data[1]);
+//     console.log("Comments: ", data[2]);
+// });
+
+// promise race
+// akan mengembalikan promise dari peserta yang paling cepat selesai, apapun hasilnya:
+// bisa resolve lebih dulu
+// bisa reject lebih dulu
+// Pokoknya siapa yang selesai duluan → dia menang race.
+// Ini sangat berguna untuk:
+// timeout request API
+// fallback ke server lain jika server utama lambat
+// memilih resource tercepat
+
+const k1 = new Promise(resolve => setTimeout(() => resolve("A"), 1000)); // akan keluar duluan karena 1 detik lebih cepat
+const k2 = new Promise(resolve => setTimeout(() => resolve("B"), 2000));
+Promise.race([k1, k2]).then(all => console.log(all)); // akan keluar hanya A karena A menang
+
+const o1 = new Promise((_, rej) => setTimeout(() => rej("Error"), 2000));
+const o2 = new Promise(resolve => setTimeout(() => resolve("Done"), 1000));
+Promise.race([o1, o2])
+    .then(console.log)
+    .catch(err => console.log("Error: " + err)); // akan keluar error
+
