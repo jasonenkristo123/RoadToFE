@@ -546,67 +546,74 @@ Promise.race([o1, o2])
 
 // promise chaining + error routing
 
-function slow() {
-    return new Promise(resolve => setTimeout(() => resolve("Slow"), 200));
-}
-
-function fast() {
-    return new Promise(resolve => {
-        setTimeout(() => resolve("Fast"), 50)
-    });
-}
-
-Promise.resolve("Start")
-    .then((msg) => {
-        console.log(msg);
-        return fast();
-    })
-    .then((msg) => {
-        console.log(msg);
-        throw "Crash";
-    })
-    .then(() => console.log("After Crash"))
-    .catch((err) => {
-        console.log("Err: " + err);
-        return slow();
-    })
-    .then((msg) => {
-        console.log("Recover: " + msg);
-        return "End";
-    })
-    .finally(() => console.log("Done"));
-
-function get(i) {
-    return new Promise((resolve) => {
-        setTimeout(() => resolve(i * 2), 100);
-    });
-}
-
-let k = Promise.resolve("First");
-k = k.then((msg) => {
-    console.log(msg);
-    return get(5);
-});
-
-for (let i = 1; i <= 3; i++) {
-    k = k.then((x) => {
-        console.log("Loop", x);
-        return get(x / 2);
-    });
-}
-
-k.then((final) => console.log("Done:", final));
-
-let p4 = Promise.resolve(10);
-for (let i = 0; i <= 3; i++) {
-    p4 = p4.then((n) => {
-        if (i === 2) {
-            throw "Stop";
-        }
-        return n + i;
-    })
-}
-p4
-    .then((x) => console.log("OK:", x))
-    .catch((err) => console.log("Err:", err))
-    .then(() => console.log("Done"));
+// function slow() {
+//     return new Promise(resolve => setTimeout(() => resolve("Slow"), 200));
+// }
+// 
+// function fast() {
+//     return new Promise(resolve => {
+//         setTimeout(() => resolve("Fast"), 50)
+//     });
+// }
+// 
+// Promise.resolve("Start")
+//     .then((msg) => {
+//         console.log(msg);
+//         return fast();
+//     })
+//     .then((msg) => {
+//         console.log(msg);
+//         throw "Crash";
+//     })
+//     .then(() => console.log("After Crash"))
+//     .catch((err) => {
+//         console.log("Err: " + err);
+//         return slow();
+//     })
+//     .then((msg) => {
+//         console.log("Recover: " + msg);
+//         return "End";
+//     })
+//     .finally(() => console.log("Done"));
+// 
+// function get(i) {
+//     return new Promise((resolve) => {
+//         setTimeout(() => resolve(i * 2), 100);
+//     });
+// }
+// 
+// let k = Promise.resolve("First");
+// k = k.then((msg) => {
+//     console.log(msg);
+//     return get(5);
+// });
+// 
+// for (let i = 1; i <= 3; i++) {
+//     k = k.then((x) => {
+//         console.log("Loop", x);
+//         return get(x / 2);
+//     });
+// }
+// 
+// k.then((final) => console.log("Done:", final));
+// 
+// let p4 = Promise.resolve(10);
+// for (let i = 0; i <= 3; i++) {
+//     p4 = p4.then((n) => {
+//         if (i === 2) {
+//             throw "Stop";
+//         }
+//         return n + i;
+//     })
+// }
+// p4
+//     .then((x) => console.log("OK:", x))
+//     .catch((err) => console.log("Err:", err))
+//     .then(() => console.log("Done"));
+// 
+// // promise allsettled -> menjalankan semua meskipun ada yang gagal
+Promise.allSettled([
+    Promise.resolve(10),
+    Promise.resolve(20)
+])
+.then(console.log);
