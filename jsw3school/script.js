@@ -616,4 +616,25 @@ Promise.allSettled([
     Promise.resolve(10),
     Promise.resolve(20)
 ])
-.then(console.log);
+.then(console.log); // jadi array status fulfilled kalau resolve, status rejected kalau gagal. value, reason tiap dari mereka
+
+// promise any() - kebalikan dari all karena dia akan resolve jika minimal 1 resolve dan juga reject kalau semua rejected
+Promise.any([
+    Promise.reject("Malas"),
+    Promise.resolve("Asem"),
+    Promise.reject("bruh")
+]).then(console.log);
+// akan menghasilkan resolve jika ada yang berhasil di resolve
+// fungsinya adalah biasanya dipakai fallback ke server tercepat, retry ke beberapa endpoint, ambil api mirror yang berhasil duluan 
+
+Promise.any([
+    Promise.reject("A"),
+    Promise.reject("M")
+]).catch(e => console.log(e)); // outputnya harusnya ["A", "B"]
+
+// microtask vs task(promise vs timeout)
+// perbandingan waktu 
+console.log("1");
+setTimeout(() => console.log("2"), 0);
+Promise.resolve().then(() => console.log("3"));
+console.log("4");
