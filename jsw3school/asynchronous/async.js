@@ -15,4 +15,11 @@ async function test() {
 test();
 
 
-
+async function run() {
+    console.log("1");
+    const p = Promise.resolve("2");
+    console.log(p);
+    console.log(await p);
+    console.log("3");
+}
+run();
