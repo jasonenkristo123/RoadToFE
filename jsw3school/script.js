@@ -364,26 +364,26 @@ class pait extends asem {
 
 // getter dan setter advance
 
-class UserName {
-    constructor(name) {
-        this.name = name;
-    }
-
-    get jeneng() {
-        return this.name.toUpperCase();
-    }
-
-    set jeneng(value) {
-        if (value.length < 3) {
-            console.log("name is too short");
-            return;
-        }
-        this.name = value;
-    }
-}
-
-const user3 = new UserName("Jason");
-console.log(user3.jeneng);
+// class UserName {
+//     constructor(name) {
+//         this.name = name;
+//     }
+// 
+//     get jeneng() {
+//         return this.name.toUpperCase();
+//     }
+// 
+//     set jeneng(value) {
+//         if (value.length < 3) {
+//             console.log("name is too short");
+//             return;
+//         }
+//         this.name = value;
+//     }
+// }
+// 
+// const user3 = new UserName("Jason");
+// console.log(user3.jeneng);
 
 
 // static vs instance = static tinggal panggil class.method kalau instance harus obj.method
@@ -642,3 +642,33 @@ console.log("4");
 // karena 1 dan 4 itu synchronous js
 // 3 adalah microtask(promise)
 // dan 2 adalah task(timeout)
+
+// async await material
+// async itu seperti promise.resolve (dia me return promise)
+// kalau await itu dia hanya bisa di taruh di async dan dia menunggu promise tp tidak block thread (seperti then)
+// akan menggunakan try dan catch
+
+// bedanya promise dan async
+// fetchData()
+//     .then(result => console.log(result))
+//     .catch(err => console.log(err));
+
+// async function run() {
+//     try {
+//         const result = await fetchData();
+//         console.log(result);
+//     } catch (err) {
+//         console.log(err);
+//     }
+// }
+
+async function hello() {
+    return "HI"; // sama aja dengan promise.resolve("HI")
+}
+// await akan menunggu setiap baris jadi kalau mau bersamaan harus pakai promise all
+// const [a, b, c] = await Promise.all([A(), B(), C()]);
+
+async function test() {
+    return 10;
+}
+console.log(test());
