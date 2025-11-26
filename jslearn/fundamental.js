@@ -122,4 +122,4 @@ const guru1 = new guru("Marji", "Math", 48);
 // const perkalian = (a, b) => a * b;
 // console.log(perkalian(10, 2));
 
- 
+
