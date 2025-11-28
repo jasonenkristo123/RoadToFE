@@ -15,11 +15,60 @@ async function test() {
 test();
 
 
-async function run() {
-    console.log("1");
-    const p = Promise.resolve("2");
-    console.log(p);
-    console.log(await p);
-    console.log("3");
+// async function run() {
+//     console.log("1");
+//     const p = Promise.resolve("2");
+//     console.log(p);
+//     console.log(await p);
+//     console.log("3");
+// }
+// run();
+
+function fail() {
+    return Promise.reject("BOOM");
 }
-run();
+
+async function testing() {
+    try {
+        const x = await fail();
+        console.log(x);
+    } catch(e) {
+        console.log("ERR: " + e);
+    }
+}
+testing();
+
+// ini sama aja dengan throw
+async function bad() {
+    throw "Balalallaa";
+}
+
+async function panggil() {
+    try {
+        const x = await bad();
+        console.log(x);
+    } catch (e) {
+        console.log("Eror bos: " + e);
+    } finally {
+        console.log("Selesaii")
+    }
+}
+panggil();
+
+// try catch hanya menangkap error tidak hentikan function
+
+function getNum() {
+    return Promise.resolve(10);
+}
+
+async function num() {
+    try {
+        const x = await getNum();
+        throw "Stop";
+        console.log("After");
+    } catch (e) {
+        console.log("we: " + e);
+    }
+    console.log("done");
+}
+num();
