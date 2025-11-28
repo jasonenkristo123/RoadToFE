@@ -108,3 +108,17 @@ async function parallel() {
 }
 parallel();
 
+// mixed sering digunakan di real application
+// misal mau ambil profile dulu baru kalau udah tahu tanmpilin post dan komen secara parallel
+async function mixed() {
+    const user = await delays({ id: 10, name: "Jason"}, 1000);
+
+    const [post, comments] = await Promise.all([
+        delays("POSTS DONE", 1000),
+        delays("COMMENTS DONE", 1000)
+    ]);
+
+    console.log(user, post, comments);
+}
+mixed();
+
