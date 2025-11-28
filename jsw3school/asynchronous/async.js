@@ -39,21 +39,21 @@ async function testing() {
 testing();
 
 // ini sama aja dengan throw
-async function bad() {
-    throw "Balalallaa";
-}
+// async function bad() {
+//     throw "Balalallaa";
+// }
 
-async function panggil() {
-    try {
-        const x = await bad();
-        console.log(x);
-    } catch (e) {
-        console.log("Eror bos: " + e);
-    } finally {
-        console.log("Selesaii")
-    }
-}
-panggil();
+// async function panggil() {
+//     try {
+//         const x = await bad();
+//         console.log(x);
+//     } catch (e) {
+//         console.log("Eror bos: " + e);
+//     } finally {
+//         console.log("Selesaii")
+//     }
+// }
+// panggil();
 
 // try catch hanya menangkap error tidak hentikan function
 
@@ -72,3 +72,39 @@ async function num() {
     console.log("done");
 }
 num();
+
+
+// sequential vs parallel vs mixed
+// sequential itu sendiri sendiri dan lama
+function delays(value, ms) {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(value), ms)
+    });
+}
+
+async function sequential() {
+    console.log("Start");
+    const a = await delays("A", 1000);
+
+    console.log(a);
+    const b = await delays("B", 1000);
+
+    console.log(b);
+    const c = await delays("C", 1000);
+
+    console.log(c);
+    console.log("End");
+}
+sequential();
+
+// kalau parallel
+async function parallel() {
+    const A =  delays("A", 1000);
+    const B =  delays("B", 1000);
+    const C =  delays("C", 1000);
+
+    const results = await Promise.all([A, B, C]);
+    console.log(results);
+}
+parallel();
+
