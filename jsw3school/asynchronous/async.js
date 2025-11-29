@@ -170,3 +170,38 @@ function safeHandler(fn) {
 //     console.log("Done: " + data);
 // }
 
+function logItem(value, ms) {
+    return new Promise(resolve => setTimeout(() => resolve(value), ms));
+}
+
+async function printing() {
+    const a = await logItem("A", 1000);
+    const b = await logItem("B", 1000);
+    const c = await logItem("C", 1000);
+
+    console.log(a)
+    console.log(b)
+    console.log(c)
+}
+printing();
+
+function download(u) {
+    return new Promise(res => setTimeout(() => res("done " + u), 1000))
+}
+
+const urls = ["u1", "u2", "u3", "u4", "u5"];
+
+async function downloadAll() {
+    const url = await Promise.all(urls.map(item => download(item)))
+    console.log(url);
+}
+downloadAll();
+
+function delay(value, ms) {
+    return new Promise(res => setTimeout(() => res(value), ms));
+}
+async function generator() {
+    console.log(delay(1), 1000);
+    console.log(delay(2), 1000);
+    console.log(delay(3), 1000);
+}
