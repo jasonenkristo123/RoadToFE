@@ -197,11 +197,18 @@ async function downloadAll() {
 }
 downloadAll();
 
+// async generator
 function delay(value, ms) {
     return new Promise(res => setTimeout(() => res(value), ms));
 }
-async function generator() {
-    console.log(delay(1), 1000);
-    console.log(delay(2), 1000);
-    console.log(delay(3), 1000);
+async function* number() {
+    yield await delay(1, 1000);
+    yield await delay(2, 1000);
+    yield await delay(3, 1000);
 }
+
+(async function() {
+    for await(const v of number()) {
+        console.log(v);
+    }
+})();
