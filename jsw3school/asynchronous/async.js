@@ -122,3 +122,40 @@ async function mixed() {
 }
 mixed();
 
+// async di event handler
+// button.addEventListener("click", async() => {
+//     const data = await fetchData();
+//     console.log(data);
+// });
+
+// Event handler di atas memulai sebuah Promise, tapi:
+// event listener tidak menunggu async selesai
+// event listener tidak catch error dengan sendirinya
+// Kalau fetch-nya error, kamu sering tidak melihat error di console!
+
+// solusinya yang terbaik adalah handle errorr menggunakan try catch
+// button.onclick = async () => {
+//     try {
+//         const res = await fetch("https://api.com");
+//         const users = await res.json();
+//         console.log(users);
+//     } catch (e) {
+//         console.log("Gagal fetch: " + e);
+//     }
+// }
+
+// agar tidak kebanyakan try dan catch, kita gunakan wrapper di function 
+function safeHandler(fn) {
+    return function(...args) {
+        fn(...args).catch(e => {
+            console.log("error: " + e)
+        });
+    };
+}
+// lalu dimasukkan ke event
+// button.onclick = safeHandler(async() => {
+//     const res = await fetch("https://api.com");
+//     const user = res.json();
+//     console.log(user);
+// })
+
