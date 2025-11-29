@@ -159,3 +159,14 @@ function safeHandler(fn) {
 //     console.log(user);
 // })
 
+// loading state tanpa dom (contoh)
+// function wait(ms) {
+//     return new Promise(resolve => setTimeout(() => resolve("OK"), ms));
+// }
+
+// async function onClick() {
+//     console.log("Loading...");
+//     const data = await wait(2000);
+//     console.log("Done: " + data);
+// }
+
