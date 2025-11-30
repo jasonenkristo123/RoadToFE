@@ -212,3 +212,71 @@ async function* number() {
         console.log(v);
     }
 })();
+
+// safe async patterns
+// terdapat 4 yaitu safehandler, safepromise, timeout wrapper, retry wrapper
+// safe handler
+function handler(fn) {
+    return function(...args) {
+        fn(...args).catch(e => {
+            console.error("Handler error: " + e);
+        });
+    };
+}
+
+// utton.onclick = handler(async () => {
+//    const data = await fetchdata();
+//    console.log(data);
+// )
+
+// safe promise
+// dipakai di api, database query, server call
+function safePromise(promise) {
+    return promise
+        .then(data => [null, data])
+        .catch(err => [err, null]);
+}
+
+// const [data, err] = await safePromise(fetch("https://api.com"));
+// if (err) {
+//     console.log("error");
+// } else {
+//     console.log("success");
+// }
+// mengurangi try catch yang panjang
+
+
+
+// timeout wrapper agar tidak freeze ketika api lambat
+// menggunakan promise race
+function timeoutWrapper(promise, ms) {
+    return Promise.race([promise, new Promise((_, rej) => {
+        setTimeout(() => rej("timeout"), ms)
+    })]);
+}
+
+async function apalah() {
+    try {
+        const data = await timeoutWrapper(fetch(url), 1500);
+        console.log(data);
+    } catch (e) {
+        console.log("errorr", e);
+    }    
+}
+
+// retry wrapper, untuk retry api yang gagal misal 3 baru error
+async function retry(fn, times = 3) {
+    let lasterror;
+    for (let i = 0; i < times; i++) {
+        try {
+            return await fn();
+        } catch (e) {
+            lasterror = e;
+        }
+    }
+    throw lasterror;
+}
+
+async function apply() {
+    const data = await retry(() => fetch(url), 3);
+}
