@@ -280,3 +280,30 @@ async function retry(fn, times = 3) {
 async function apply() {
     const data = await retry(() => fetch(url), 3);
 }
+
+function safeHandler(fn) {
+    return function(...args) {
+        fn(...args).catch(e => {
+            console.log("Handler Error: Error: ", e);
+        })
+    }
+} 
+
+function withTimeout(ms, promise) {
+    return Promise.race([
+        promise, new Promise((_, rej) => 
+        setTimeout(() => rej("Timeout"), ms))
+    ]);
+}
+
+async function retry(fn, times) {
+    let lasterr;
+    for (let i = 0; i < times; i++) {
+        try {
+            return await fn();
+        } catch (e) {
+            lasterr = e;
+        }
+    }
+    throw lasterr;
+}
