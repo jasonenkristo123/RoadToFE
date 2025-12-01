@@ -307,3 +307,51 @@ async function retry(fn, times) {
     }
     throw lasterr;
 }
+
+// batching atau chunking untuk mengambil beberapa per batch
+async function batching(items, batchSize, fn) {
+    for (let i = 0; i < items; i += batchSize) {
+        const batch = items.slice(i, i + batchSize);
+        console.log("Processing Batch: ", batch);
+
+        await Promise.all(batch.map(fn));
+    }
+}
+// jadi akan diambil tergantung berapa batch
+
+// throttling
+// membatasi function bisa dipanggil 1 kali setiap Xms
+
+function throttle(fn, ms) {
+    let locked = false;
+    return function (...args) {
+        if (locked) return;
+        locked = true;
+
+        fn(...args);
+        setTimeout(() => locked = false, ms);
+    }
+}
+
+// debounce (wait until user stop), menjalankan function hanya setelah berhenti selama beberapa detik (digunakan saat mengetik)
+function debounce(fn, ms) {
+    let timeout;
+
+    return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => fn(...args), ms);
+    };
+}
+
+// async queue dipakai untuk antrian misal upload file satu per satu
+
+// class AsyncQueue() {
+//     constructor() {
+//         this.queue = Promise.resolve();
+//     }
+//     enqueue(task) {
+//         this.queue = this.queue.then(task);
+//         return this.queue;
+//     }
+// }
+
