@@ -71,3 +71,49 @@ const q = asyncQueue();
 q.push(() => job("Jason", 1000));
 q.push(() => job("ogil", 500));
 q.push(() => job("asa", 300));
+
+// scheduler yaitu membatasi api per detik
+function schedule(limit) {
+    const queue = [];
+    let active = 0;
+
+    async function run() {
+        if (active >= limit) return;
+        if (queue.length === 0) return;
+
+        active++;
+        const task = queue.shift();
+
+        try {
+            await task();
+        } catch (e) {
+            console.log("error: " + e);
+        } finally {
+            active--; // mengurangi task
+            run(); // jalankan task selanjutnya
+        }
+    }
+
+    return {
+        add(taskfn) {
+            queue.push(taskfn);
+            run();
+        }
+    }
+}
+
+function jobs(name, ms) {
+    return new Promise(res => {
+        console.log("Start: " + name);
+        setTimeout(() => {
+            console.log("Done: " + name);
+            res(); // promise selesai dan tidak mengembalikan nilai karena kita sudah console.log
+        }, ms)
+    })
+}
+
+const p = schedule(2);
+p.add(() => jobs("A", 1000));
+p.add(() => jobs("B", 500));
+p.add(() => jobs("C", 800));
+p.add(() => jobs("D", 300));
