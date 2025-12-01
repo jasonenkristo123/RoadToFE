@@ -356,29 +356,42 @@ function debounce(fn, ms) {
 // }
 
 // scheduler yaitu limit jumlah async yang bisa jalan bersamaan
-class Scheduler() {
-    constructor(max) {
-        this.max = max;
-        this.running = 0;
-        this.queue = [];
-    }
-    add(task) {
-        return new Promise(res => {
-            this.queue.push(() => task().then(res));
-            this.run();
-        });
-    }
+// class Scheduler() {
+//     constructor(max) {
+//         this.max = max;
+//         this.running = 0;
+//         this.queue = [];
+//     }
+//     add(task) {
+//         return new Promise(res => {
+//             this.queue.push(() => task().then(res));
+//             this.run();
+//         });
+//     }
 
-    run() {
-        if(this.running >= this.max) return;
-        if(this.queue.length === 0) return;
+//     run() {
+//         if(this.running >= this.max) return;
+//         if(this.queue.length === 0) return;
 
-        const next = this.queue.shift();
-        this.running++;
+//         const next = this.queue.shift();
+//         this.running++;
 
-        next().finally(() => {
-            this.running--;
-            this.run();
-        });
+//         next().finally(() => {
+//             this.running--;
+//             this.run();
+//         });
+//     }
+// }
+
+function kaliDua(fn) {
+    return function(...args) {
+        return fn(...args) * 2;
     }
 }
+
+function tambah(x) {
+    return x + x;
+}
+
+const newFn = kaliDua(tambah);
+console.log("Hasil X + X dikali 2 adalah: ", newFn(5));
