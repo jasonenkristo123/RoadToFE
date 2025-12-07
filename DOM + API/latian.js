@@ -108,3 +108,15 @@ console.log(ul.lastElementChild);
 console.log(ul.nextElementSibling);
 console.log(ul.previousElementSibling);
 
+// event flow
+// ketika di klik, melewati 3 fase
+// 1 capture phase event bergerak dari atas ke bawah, document, html, body
+// target phase event ke element di klik
+// bubbling phase event naik kembali
+
+// kalau tidak ingin event menembus ke parent
+btn.addEventListener("click", () => {
+    btn.stopPropagation();
+    btn.preventDefault();
+    btn.stopImmediatePropagation();
+})
