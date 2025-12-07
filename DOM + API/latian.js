@@ -89,3 +89,22 @@ buttons.classList.toggle("merah");
 btn.dataset.id;
 btn.dataset.role;
 btn.dataset.id = 50;
+
+
+// traversing dom
+const p = document.querySelector("p");
+console.log(p.parentElement); // akses parent element div atau body
+
+// akses ke children
+// childnodes dan children
+// chilnodes mengembalikan nodelist berisi semua node
+// children mengembalikan htmlcollection
+
+const ul = document.getElementById("list");
+console.log(ul.childNodes);
+console.log(ul.children);
+console.log(ul.firstElementChild);
+console.log(ul.lastElementChild);
+console.log(ul.nextElementSibling);
+console.log(ul.previousElementSibling);
+
