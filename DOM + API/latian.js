@@ -52,10 +52,10 @@ box.classList.toggle("active");
 box.classList.remove("dark");
 
 // membuat elemen baru
-const li = document.createElement("li");
-li.textContent = "item baru";
-document.querySelector("welek").appendChild(li);
-welek.prepend(li);
+// const li = document.createElement("li");
+// li.textContent = "item baru";
+// document.querySelector("welek").appendChild(li);
+// welek.prepend(li);
 
 const titles = document.getElementById("title");
 const desc = document.getElementById("desc");
@@ -67,13 +67,25 @@ let counter = 1;
 btn.addEventListener("click", () => {
     titles.textContent = "Judul Baru";
     desc.innerHTML = "<b>Deskripsi Berubah</b>"
-    gambar.setAttribute("new.jpg", 200);
+    
     titles.classList.toggle("Highlight");
 
-    const lis = document.createElement("li");
+    const li = document.createElement("li");
     li.textContent = "Item" + counter;
     counter++;
-    list.appendChild(lis);
+    list.appendChild(li);
 });
 
-// remove replace setattribute
+// manipulasi style dan class
+const box = document.getElementById("box");
+box.style.fontFamily = "sans-serif";
+
+// misal mau classnya ditambah atau di toggle
+const buttons = document.getElementById("buttons");
+buttons.classList.add("aktif");
+buttons.classList.toggle("merah");
+
+// manipulasi
+btn.dataset.id;
+btn.dataset.role;
+btn.dataset.id = 50;
