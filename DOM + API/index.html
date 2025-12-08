@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latian Dom</title>
+    <style>
+        html {
+            padding-left: 20px;
+        }
+
+        img {
+            display: flex;
+            margin-top: 20px;
+        }
+        .aktif {
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    
+        <h1 id="judul">Halo</h1>
+        <p id="paragraf">Paragraf Asli</p>
+        <button id="btn">Ubah</button>
+
+        <ul id="daftar">
+            <li>Item 1</li>
+        </ul>
+        <img src="mio.jpeg" alt="" id="gambar">
+
+        <div>
+            <p>Outer</p>
+            <p>Asli</p>
+            <div>
+                <p>Inner</p>
+            </div>
+        </div>
+        
+    <script>
+        const judul = document.getElementById("judul");
+        const paragraf = document.getElementById("paragraf");
+        const btn = document.getElementById("btn");
+        const daftar = document.getElementById("daftar");
+        const img = document.getElementById("gambar");
+        let counter = 1;
+        btn.addEventListener("click", () => {
+            judul.textContent = "Judul diganti";
+            paragraf.classList.toggle("aktif");
+            const pertama = daftar.querySelector("li");
+            pertama.remove();
+
+            const baru = document.createElement("li");
+            baru.textContent = "item baru";
+            daftar.appendChild(baru);
+            
+            paragraf.textContent = "AsuSayangKamu";
+            const listing = document.createElement("li");
+            listing.textContent = "Item" + counter;
+            daftar.appendChild(listing);
+            counter++;
+        })
+    </script>
+</body>
+</html>
