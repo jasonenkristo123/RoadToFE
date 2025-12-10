@@ -159,3 +159,23 @@ daftar.addEventListener("click", (e) => {
     }
 })
 // untuk banyak elemen
+// mencegah default behavior
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log("tidak ke reload");
+})
+
+// local storage vs session storage
+// local ketike browser ditutup, masih tersimpan datanya, kalau session tidak
+localStorage.setItem("nama", "jason");
+const x = localStorage.getItem("nama");
+console.log(x);
+
+const btn = document.getElementById("theme-btn");
+document.body.className = localStorage.getItem("theme") || "light";
+btn.addEventListener("click", () => {
+    const current = document.body.className;
+    const next = current === "light" ? "dark" : "light";
+    document.body.className = next;
+    localStorage.setItem("theme", next);
+})
