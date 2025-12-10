@@ -120,3 +120,42 @@ btn.addEventListener("click", () => {
     btn.preventDefault();
     btn.stopImmediatePropagation();
 })
+
+// event object
+btn.addEventListener("click", function(e) {
+    console.log(e);
+}) 
+
+// lalu dari function bisa dilakukan
+e.type
+e.target
+e.currentTarget
+e.preventDefault()
+e.stopPropagation()
+
+// event bubbling
+// Event click bukan hanya terjadi pada elemen yang diklik, tapi juga “naik” ke parent-nya.
+// misal
+// <div id="box">
+//     <button id="btn">Klik</button>
+// </div>
+
+document.getElementById("box").addEventListener("click", () => {
+    console.log("DIV diklik!");
+});
+
+document.getElementById("btn").addEventListener("click", () => {
+    console.log("BUTTON diklik!");
+});
+// outputnya akan button diklik baru div diklik
+// 1 button di klik akan 2 output karena event mengalir dari button -> div -> body -> html -> documewnt
+
+// kalau mau stop bubble pakai stopPropagation
+
+// event delegation (penting), dari pada pasang event listener satu per satu elemen
+daftar.addEventListener("click", (e) => {
+    if (e.target.tagName === "LI") {
+        console.log("Kamu klik: ", e.target.textContent);
+    }
+})
+// untuk banyak elemen
