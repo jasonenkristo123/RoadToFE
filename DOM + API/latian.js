@@ -179,3 +179,27 @@ btn.addEventListener("click", () => {
     document.body.className = next;
     localStorage.setItem("theme", next);
 })
+sessionStorage
+
+// fetch api
+// ini masih contoh pakai promise
+// get request
+fetch("api.com")
+    .then(res => res.json())
+    .then(data => {
+        console.log("Users: " + data);
+    })
+    .catch(err => console.log("Error: " + err));
+
+// kalau post
+fetch("api.com", {
+    method: "POST",
+    headers: { "Content-Type": "application/json"},
+    body: JSON.stringify({
+        title: "Halo",
+        body: "ini contoh",
+        userId: 1
+    })
+})
+    .then(res => res.json())
+    .then(data => console.log("created:", data));
