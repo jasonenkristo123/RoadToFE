@@ -249,6 +249,66 @@ observer.observe(element);
     entries.forEach(entry => {
         if (entry.isIntersecting)
             // elemen terlihat
+        console.log("He");
     })
+}
+
+// fetch pakai async await
+async function getUsers() {
+    const res = await fetch("url");
+    const data = await res.json();
+    console.log(data);
+}
+
+// kalau lebih rapi
+async function getData() {
+    try {
+        const res = await fetch("api");
+        
+        if(!res.ok) {
+            throw new Error("Http Error" + res.status);
+        }
+        const data = await res.json();
+        console.log(data);
+    } catch (e) {
+        console.log("Error" + e.message);
+    }
+}
+
+// async await + ui flow
+async function loadData() {
+    showLoading();
+    try {
+        const res = await fetch("url");
+        if (!res.ok) throw new Error("Failed");
+
+        const data = await res.json();
+        render(data);
+    } catch (e) {
+        showError("Error: " + e.message);
+    } finally {
+        hideLoading();
+    }
+}
+
+// render data ke dom
+function renderUsers(users) {
+    const ul = document.querySelector("#list");
+    ul.innerHTML = "";
+
+    users.forEach(user => {
+        const li = document.createElement("li");
+        li.textContent = user.name;
+        ul.appendChild(li);
+    })
+}
+
+// loading state & skeleton
+function showLoading() {
+    document.getElementById("loading").style.display = "block";
+}
+
+function hideLoading() {
+    document.getElementById("loading").style.display = "none";
 }
 
