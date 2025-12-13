@@ -240,3 +240,15 @@ fetch("url.com",{
 
 
 // intersection observer
+// mengetahui kapan elmen masuk layar/keluar viewport
+
+const observer = new IntersectionObserver(callback, options);
+observer.observe(element);
+// lalu di callbacknya
+(entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting)
+            // elemen terlihat
+    })
+}
+
