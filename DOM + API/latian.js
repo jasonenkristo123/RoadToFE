@@ -203,3 +203,40 @@ fetch("api.com", {
 })
     .then(res => res.json())
     .then(data => console.log("created:", data));
+
+
+// navigator api
+// objek yang berisi informasi tentang browser dan device
+
+// untuk mengetahui jenis os
+console.log(navigator.userAgent);
+
+// mengecek online atau off
+if (navigator.onLine) {
+    console.log("Online");
+} else {
+    console.log("Offline");
+}
+
+// geolocation api
+navigator.geolocation.getCurrentPosition(pos => {
+    console.log(pos.coords.latitude);
+    console.log(pos.coords.longitude);
+});
+
+fetch("url.com",{
+    method:"POST",
+    body:JSON.stringify({
+        title: "Hello",
+        body: "Content",
+        userId: 1
+    }),
+    headers: {
+        "Content-Type": "application.json"
+    }
+})
+    .then(res => res.json())
+    .then(data => console.log(data))
+
+
+// intersection observer
